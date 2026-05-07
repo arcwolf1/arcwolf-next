@@ -1,7 +1,7 @@
 {
-	"name": "mizuki",
+	"name": "arcwolf-next",
 	"type": "module",
-	"version": "9.0",
+	"version": "v1.0",
 	"scripts": {
 		"sync-content": "node scripts/sync-content.js",
 		"init-content": "node scripts/init-content-repo.js",
