@@ -434,8 +434,7 @@ export const randomPostsConfig: RandomPostsConfig = {
 
 export const announcementConfig: AnnouncementConfig = {
 	title: "", // 公告标题，填空使用i18n字符串Key.announcement
-	content:
-		"ZM 一键破解：访问 *.arcwolf.top/1.cpp或工具-ZM破解，全选复制到 Dev-C++，保存到 C:\Windows\Temp 编译运行即可。", // 公告内容
+	content: "Nothing.", // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
