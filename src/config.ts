@@ -316,13 +316,13 @@ export const navBarConfig: NavBarConfig = {
 					url: "/1.cpp",
 					icon: "material-symbols:image-rounded",
 				},
+				{
+					name: "希沃密码",
+					url: "https://pwd.arcwolf.top",
+					external: true,
+					icon: "material-symbols:lock",
+				},
 			],
-		},
-		{
-			name: "希沃密码",
-			url: "https://pwd.arcwolf.top",
-			external: true,
-			icon: "material-symbols:lock",
 		},
 	],
 };
