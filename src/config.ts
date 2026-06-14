@@ -398,15 +398,16 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 
 export const commentConfig: CommentConfig = {
 	enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+	system: "giscus",
 	twikoo: {
 		envId: "https://twikoo.arcwolf.top/",
 		lang: SITE_LANG,
 	},
 	giscus: {
-		repo: "your-github-username/your-repo-name",
-		repoId: "your-repo-id",
+		repo: "arcwolf1/arcwolf-next",
+		repoId: "R_kgDOSPGFng",
 		category: "Announcements",
-		categoryId: "your-category-id",
+		categoryId: "DIC_kwDOSPGFns4C_H0r",
 		mapping: "pathname",
 		strict: "0",
 		reactionsEnabled: "1",
