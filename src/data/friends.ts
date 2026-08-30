@@ -108,6 +108,22 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://blog.lqay.cn",
 		tags: ["Blog"],
 	},
+	{
+		id: 21,
+		title: "Bai'Blog", // 博客名称
+		siteurl: "https://baiblog.vip", // 博客地址
+		desc: "Actions speak louder than words.", // 博客描述
+		imgurl: "https://baiblog.vip/images/5.png",
+		tags: ["blog"], // 博客头像
+	},
+	{
+		id: 22,
+		title: "MingBlog", // 博客名称
+		siteurl: "https://mingblog.site", // 博客地址
+		desc: "记录日常生活、城市影像、旅行与观察，以及认真看过、读过和听过的作品。.", // 博客描述
+		imgurl: "https://mingblog.site/icons/icon-512.png",
+		tags: ["blog"], // 博客头像
+	},
 ];
 
 // 获取所有友情链接数据
