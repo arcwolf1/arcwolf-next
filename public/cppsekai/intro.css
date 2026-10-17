@@ -1,0 +1,229 @@
+/* ==========================================================================
+   CppSekai 官网 · 进站开屏
+   规则与时间轴逐条取自《初音未来：缤纷舞台》1.5 周年纪念活动页
+   （pjsk.nvsgames.cn/1.5th 的 app.css），素材为同一批文件。
+   变量固定在 #intro 上，不污染站点其它部分的全局变量。
+   ========================================================================== */
+
+#intro {
+    --c-white:#fff;
+    --c-rainbow:linear-gradient(to right, #7BC27C 0%, #B0D073 9%, #E8DF6B 19%, #FFE568 24%, #FAD091 46%, #F4B2CF 76%, #F0B2CF 82%, #E7B4D2 87%, #D6B7D6 91%, #BFBBDD 94%, #A2C0E4 98%, #8CC4EB 100%);
+    --vw-min:1280;
+    --vw-base:1920;
+    --vw-scale:min(calc(100vw / var(--vw-min)), max(calc(100vw / var(--vw-base)), 1px));
+    --tree-mature-border: url("assets/intro/mature-line.png");
+    --tree-mature-bg: url("assets/intro/mature-fill.png");
+    --f-f-mixta:"mixta-pro",serif;
+    --c-leoneed:#4455DD;
+    --c-moremorejump:#88DD44;
+    --c-vividbadsquad:#EE1166;
+    --c-wonderlandsshowtime:#FF9900;
+    --c-25nightcode:#884499;
+}
+
+@keyframes fadein{0%{opacity:0}100%{opacity:1}}
+@keyframes fadeout{0%{opacity:1}100%{opacity:0}}
+@keyframes fadeinClip{0%{clip-path:inset(-1% 100% -1% -1%)}99%{clip-path:inset(-1%)}100%{clip-path:none}}
+@keyframes fadeoutBlur{0%{filter:blur(0) opacity(1)}100%{filter:blur(20px) opacity(0)}}
+@keyframes loadingMatureBg{0%{-webkit-mask-position:0 0;mask-position:0 0}100%{-webkit-mask-position:100% 0;mask-position:100% 0}}
+@keyframes loadingEnergySp{0%{background-position:top 0 center}100%{background-position:top 198.5677083333vw center}}
+@keyframes loadingEnergyPc{0%{background-position:top 0 center}100%{background-position:top calc(1716 * var(--vw-scale)) center}}
+@keyframes loadingEffectsRotate{0%{rotate:1 1 1 0deg}100%{rotate:1 1 1 360deg}}
+@keyframes loadingTreeFadeout{0%{scale:1;opacity:1}100%{scale:1.5;opacity:0}}
+
+/* ---------- 开屏 ---------- */
+.is-loading *{transition:none!important;transition-delay:unset!important}
+.is-loading .l-wrapper::after{opacity:1}
+.c-loading{position:fixed;top:0;left:0;width:100%;height:100%;background-color:var(--c-white);animation:fadeout 2.1s 10.45s ease forwards;z-index:9999}
+.is-loading .c-loading{animation:none}
+.c-loading__skip-button{display:grid;place-content:center;position:fixed;bottom:7.8125vw;right:5.2083333333vw;width:39.0625vw;height:9.375vw;font-family:var(--f-f-mixta);font-size:3.125vw;letter-spacing:.2em;line-height:1.6;border:1px solid #d3dad9;border-radius:calc(infinity * 1px);background:rgba(255,255,255,.2);background-color:var(--c-white);opacity:0;animation:fadein 1s .6s ease forwards,fadeout .8s 9.65s ease forwards;z-index:999}
+@media print,screen and (min-width:1025px){
+.c-loading__skip-button{bottom:calc(60 * var(--vw-scale));right:calc(40 * var(--vw-scale));width:calc(250 * var(--vw-scale));height:calc(60 * var(--vw-scale));font-size:calc(20 * var(--vw-scale))}
+}
+.c-loading__skip-button::after{content:"";position:absolute;top:50%;right:4.6875vw;transform:translateY(-50%);width:2.5vw;aspect-ratio:16/12;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAxMiI+PHBhdGggZmlsbD0iIzQ0NiIgZD0iTTE0IDBoMnYxMmgtMnptLTIgNmwtOSA1LjE5NlYuODA0TDEyIDZ6Ii8+PC9zdmc+) no-repeat center/100% 100%}
+@media print,screen and (min-width:1025px){
+.c-loading__skip-button::after{right:calc(30 * var(--vw-scale));width:calc(16 * var(--vw-scale))}
+}
+.is-loading .c-loading__skip-button{animation:none}
+@media (any-hover:hover){
+.c-loading__skip-button{transition:border-color .5s}
+}
+@media (any-hover:hover){
+.c-loading__skip-button:hover{border-color:#eedbaa}
+}
+.c-loading__circle{display:block;position:absolute;inset:0;transition:opacity .2s}
+.c-loading__circle.is-hidden{opacity:0}
+.c-loading__circle .c-in-circle{content:"";display:block;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:19.53125vw;aspect-ratio:1;border-radius:calc(infinity * 1px);animation:loadingCircle 6s infinite ease;transform-origin:top left;scale:0}
+@media print,screen and (min-width:1025px){
+.c-loading__circle .c-in-circle{width:calc(120 * var(--vw-scale))}
+}
+.c-loading__circle .c-in-circle.--leoneed{background-color:var(--c-leoneed)}
+.c-loading__circle .c-in-circle.--moremorejump{background-color:var(--c-moremorejump);animation-delay:1.2s}
+.c-loading__circle .c-in-circle.--vividbadsquad{background-color:var(--c-vividbadsquad);animation-delay:2.4s}
+.c-loading__circle .c-in-circle.--wonderlandsshowtime{background-color:var(--c-wonderlandsshowtime);animation-delay:3.6s}
+.c-loading__circle .c-in-circle.--25nightcode{background-color:var(--c-25nightcode);animation-delay:4.8s}
+.c-loading__text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) translate3d(0,0,0);width:75%;aspect-ratio:539/43;-webkit-mask:none;mask:none;animation:fadeinClip 1.2s .3s cubic-bezier(.05,.95,.17,1) both,fadeoutBlur .6s 2.5s linear forwards}
+@media print,screen and (min-width:1025px){
+.c-loading__text{width:calc(539 * var(--vw-scale))}
+}
+.c-loading__text::after,.c-loading__text::before{content:"";position:absolute;inset:0}
+.c-loading__text::before{background-color:#446}
+.c-loading__text::after{background:var(--c-rainbow);animation:fadein .8s .7s both}
+.is-loading .c-loading__text{animation:none;opacity:0}
+.is-loading .c-loading__text::after{animation:none;opacity:0}
+.c-loading__tree{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transform-origin:top left;width:65.1041666667vw;aspect-ratio:1;animation:loadingTreeFadeout 1.2s 9.25s ease forwards}
+@media print,screen and (min-width:1025px){
+.c-loading__tree{width:calc(605 * var(--vw-scale))}
+}
+.is-loading .c-loading__tree{animation:none}
+.c-loading__tree .c-in-sprout{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:14.2148760331%;animation:fadein 1.8s 2.7s ease both,fadeout 1s 3.6s linear forwards}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-sprout{width:14.2148760331%}
+}
+.is-loading .c-loading__tree .c-in-sprout{animation:none;opacity:0}
+.c-loading__tree .c-in-seeding{position:absolute;bottom:0;left:51.6%;transform:translateX(-50%);width:18.6776859504%;animation:fadein .6s 4.1s ease both,fadeout 1s 4.6s linear forwards}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-seeding{width:18.6776859504%}
+}
+.is-loading .c-loading__tree .c-in-seeding{animation:none;opacity:0}
+.c-loading__tree .c-in-sapling{position:absolute;bottom:0;left:50.2%;transform:translateX(-50%);width:36.0330578512%;animation:fadein 1s 5.1s ease both,fadeout 1s 5.7s linear forwards}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-sapling{width:36.0330578512%}
+}
+.is-loading .c-loading__tree .c-in-sapling{animation:none;opacity:0}
+.c-loading__tree .c-in-mature{position:absolute;bottom:0;left:51%;transform:translateX(-50%);width:100%;color:#77ad3a;animation:fadein .6s 6.2s ease both}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-mature{width:100%}
+}
+.c-loading__tree .c-in-mature .c-in-rainbow{display:block;position:absolute;inset:0;background:var(--c-rainbow);-webkit-mask:var(--tree-mature-border) no-repeat top center/contain;mask:var(--tree-mature-border) no-repeat top center/contain;z-index:-1}
+.c-loading__tree .c-in-mature .c-in-bg{display:block;position:absolute;inset:0;-webkit-mask:var(--tree-mature-bg) no-repeat top center/contain;mask:var(--tree-mature-bg) no-repeat top center/contain}
+.c-loading__tree .c-in-mature .c-in-bg .c-in-bg--rainbow{display:block;position:absolute;inset:0;background:url(assets/intro/bg_loading_rainbow.jpg) no-repeat top center/contain;-webkit-mask:url(assets/intro/bg_loading_spritesheet.png) no-repeat left center/auto 100%;mask:url(assets/intro/bg_loading_spritesheet.png) no-repeat left center/auto 100%;animation:loadingMatureBg 2.4s 7.1s steps(19,end) forwards}
+.c-loading__tree .c-in-mature svg{animation:fadeout .5s 6.6s linear forwards}
+.c-loading__tree .c-in-mature svg path{stroke:transparent}
+.is-loading .c-loading__tree .c-in-mature{animation:none;opacity:0}
+.is-loading .c-loading__tree .c-in-mature .c-in-bg--rainbow{animation:none}
+.is-loading .c-loading__tree .c-in-mature svg{animation:none}
+.c-loading__tree .c-in-effects{display:block;position:absolute;inset:0}
+.c-loading__tree .c-in-effects .rotate{display:block;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);aspect-ratio:2/1;transition:translate 3.3s 8.35s cubic-bezier(0,1.09,0,.97);animation:fadein 3.3s 8.35s cubic-bezier(0,1.09,0,.97) both}
+.c-loading__tree .c-in-effects .rotate .triangle{display:block;position:absolute;inset:0;transform-style:preserve-3d;clip-path:polygon(0 0,100% 0,50% 100%);background:url(assets/intro/bg_loading_rainbow.jpg) no-repeat bottom left/39.0625vw;animation:loadingEffectsRotate linear infinite}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate .triangle{background-size:calc(300 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(even) .triangle{animation-direction:reverse}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+1){width:5.2083333333vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+1){width:calc(40 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+1) .triangle{animation-duration:2s;background-position:bottom right}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+2){width:7.8125vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+2){width:calc(60 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+2) .triangle{animation-duration:3s;background-position:top 15% left}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+3){width:6.5104166667vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+3){width:calc(50 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3n+3) .triangle{animation-duration:4s;background-position:top 20% right 45%}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(1){translate:-40.3645833333vw -9.1145833333vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(1){translate:calc(-390 * var(--vw-scale)) calc(-40 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(2){translate:-35.15625vw -11.71875vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(2){translate:calc(-350 * var(--vw-scale)) calc(-110 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3){translate:-33.8541666667vw -22.1354166667vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(3){translate:calc(-370 * var(--vw-scale)) calc(-180 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(4){translate:-29.9479166667vw -28.6458333333vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(4){translate:calc(-300 * var(--vw-scale)) calc(-230 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(5){translate:-23.4375vw -31.25vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(5){translate:calc(-250 * var(--vw-scale)) calc(-240 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(6){translate:18.2291666667vw -35.15625vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(6){translate:calc(250 * var(--vw-scale)) calc(-220 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(7){translate:22.1354166667vw -31.25vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(7){translate:calc(370 * var(--vw-scale)) calc(-200 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(8){translate:33.8541666667vw -22.1354166667vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(8){translate:calc(420 * var(--vw-scale)) calc(-120 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(9){translate:35.15625vw -11.71875vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(9){translate:calc(440 * var(--vw-scale)) calc(-90 * var(--vw-scale))}
+}
+.c-loading__tree .c-in-effects .rotate:nth-of-type(10){translate:40.3645833333vw -9.1145833333vw}
+@media print,screen and (min-width:1025px){
+.c-loading__tree .c-in-effects .rotate:nth-of-type(10){translate:calc(400 * var(--vw-scale)) calc(-70 * var(--vw-scale))}
+}
+.is-loading .c-loading__tree .c-in-effects .rotate{animation:none;translate:0 0;opacity:0}
+.c-loading__energy{pointer-events:none;position:absolute;inset:0;background:url(assets/intro/img_loading_energy.png) repeat-y top center/52.0833333333vw auto;animation:fadein 1.4s 1.4s ease both,loadingEnergySp 1.9s linear infinite,fadeout 1.6s 6.8s ease forwards}
+@media print,screen and (min-width:1025px){
+.c-loading__energy{background-size:calc(450 * var(--vw-scale)) auto;animation-name:fadein,loadingEnergyPc,fadeout;animation-duration:3.3s,1.9s,1.6s;animation-delay:1.4s,0s,6.8s}
+}
+.is-loading .c-loading__energy{background-position:bottom 95vh center;animation:none;opacity:0}
+
+/* ---------- 站点适配 ---------- */
+
+/* 开屏那行字不再用官方那张手写体图（内容是 PJSK 的标语），换成站点自己的话。
+   clip 展开、纯色层 + 彩虹层这套结构原样保留，文字靠 attr(data-text)
+   同时喂给 ::before（深色）与 ::after（彩虹 + background-clip）。 */
+.c-loading__text {
+    width: auto;
+    aspect-ratio: auto;
+    -webkit-mask: none;
+    mask: none;
+    font-family: var(--f-f-mixta);
+    font-weight: 600;
+    font-size: clamp(17px, 3vw, 33px);
+    letter-spacing: .18em;
+    text-indent: .18em;
+    line-height: 1.45;
+    white-space: nowrap;
+    text-align: center;
+    color: transparent;
+}
+
+.c-loading__text::after,
+.c-loading__text::before {
+    content: attr(data-text);
+    white-space: nowrap;
+}
+
+.c-loading__text::before {
+    background: none;
+    color: #44506e;
+}
+
+.c-loading__text::after {
+    background: var(--c-rainbow);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 树形填充改成内联 SVG + 渐变，彻底不用 CSS mask：
+   mask 引用外部图片时，file:// 下会被当作跨域、加载失败就是空遮罩 → 整棵树直接消失；
+   换回 data-uri 的 SVG 又会被按 luminance 解释 → 图形是黑的就等于全透明。 */
+.c-loading__tree .c-in-mature .mature-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: none;
+}
+
+/* 系统开了「减少动态效果」就不播 */
+@media (prefers-reduced-motion: reduce) {
+    .c-loading {
+        display: none;
+    }
+}

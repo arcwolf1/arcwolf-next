@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载 CppSekai-Droid/Linux — 在班级大屏上打 PJSK</title>
+    <meta name="description" content="CppSekai-Droid/Linux 安装包，Android 4.4+ 与主流 x86_64 Linux 发行版都能跑。仓库不带谱面，进去先用附带的 chartdl 下歌。">
+    <meta name="theme-color" content="#f3f3f3">
+    <link rel="icon" href="assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="download.css">
+</head>
+
+<body class="page-dl">
+
+
+    <div class="page-deco" aria-hidden="true">
+        <span class="pd pd-l pd-tree-l"></span>
+        <span class="pd pd-l pd-cry-l"></span>
+        <span class="pd pd-r pd-tree-r"></span>
+        <span class="pd pd-r pd-cry-r"></span>
+    </div>
+
+    <a class="back-home" href="index.html" aria-label="返回首页" title="返回首页">
+        <span class="back-home-icon" aria-hidden="true"></span>
+    </a>
+
+    <main class="dl-main">
+        <span class="dl-ink" aria-hidden="true"></span>
+        <span class="kira kira-dl" aria-hidden="true"></span>
+        <span class="crystal-tex crystal-dl" aria-hidden="true"></span>
+        <span class="note note-dl-1" aria-hidden="true"><img src="assets/deco/note-4.png" alt=""></span>
+        <span class="note note-dl-2" aria-hidden="true"><img src="assets/deco/note-1.png" alt=""></span>
+        <div class="shell">
+
+            <div class="dl-head">
+                <p class="tag">下载</p>
+                <h1>下载 <span class="dl-logo-text">CppSekai-Droid/Linux</span></h1>
+                <span class="staff staff-e" aria-hidden="true"></span>
+                <p class="dl-sub">Android 装 APK，Linux 解压即用 —— 两边都不带谱面，进去先用 chartdl 下歌。</p>
+            </div>
+
+            <section class="ver-card card" aria-live="polite">
+                <div class="ver-main">
+                    <span class="ver-label">Linux 稳定版</span>
+                    <strong data-rel-ver>读取中…</strong>
+                </div>
+                <p class="ver-meta" data-rel-facts>正在向 GitHub 查询最新发行版…</p>
+            </section>
+
+            <section class="plat-wrap">
+                <article class="plat card">
+                    <div class="plat-head">
+                        <span class="plat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2.6" y="4" width="18.8" height="15.2" rx="2.2" />
+                                <path d="m6.6 9 3 2.6-3 2.6M12.4 14.4h5" />
+                            </svg>
+                        </span>
+                        <div class="plat-name">
+                            <h2>Linux</h2>
+                            <p>主流 x86_64 发行版 · 需要 OpenGL 3.3</p>
+                        </div>
+                    </div>
+
+                    <p class="plat-desc">
+                        单个可执行包，解压后赋个执行权限就能跑，不用装运行库，也不用 root。
+                        需要 glibc 2.31 及以上（Ubuntu 20.04 / Debian 11 这一档起）。
+                    </p>
+
+                    <a class="dl-file" id="dlPrimary" href="https://github.com/arcwolf1/cppsekai-linux/releases/latest"
+                        rel="noopener">
+                        <span class="dl-file-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="22" height="22">
+                                <path d="M12 3v11m0 0 4.2-4.2M12 14l-4.2-4.2M4.5 17.5v1.7c0 1 .8 1.8 1.8 1.8h11.4c1 0 1.8-.8 1.8-1.8v-1.7"
+                                    fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                        <span class="dl-file-text">
+                            <strong>下载 Linux 版</strong>
+                            <small id="dlPrimarySub">正在读取体积…</small>
+                        </span>
+
+                    </a>
+
+                    <div class="plat-alt">
+                        <a href="https://github.com/arcwolf1/cppsekai-linux/releases" target="_blank" rel="noopener">全部历史版本</a>
+                        <a href="https://github.com/arcwolf1/cppsekai-linux" target="_blank" rel="noopener">源码仓库</a>
+                        <button type="button" id="dlCopy" hidden>复制直链</button>
+                    </div>
+                </article>
+
+                <article class="plat card">
+                    <div class="plat-head">
+                        <span class="plat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="6.2" y="2.4" width="11.6" height="19.2" rx="2.4" />
+                                <path d="M10.6 5.4h2.8M10.8 18.6h2.4" />
+                            </svg>
+                        </span>
+                        <div class="plat-name">
+                            <h2>Android</h2>
+                            <p>Android 4.4 及以上 · 触屏直接打</p>
+                        </div>
+                    </div>
+
+                    <p class="plat-desc">
+                        APK 装上就能开，不用 root，也不用装任何映射软件。班级一体机自带的多点触控直接用，
+                        建议横屏全屏。
+                    </p>
+
+                    <a class="dl-file" href="https://github.com/arcwolf1/cppsekai-droid/releases/latest" target="_blank"
+                        rel="noopener">
+                        <span class="dl-file-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="22" height="22">
+                                <path d="M12 3v11m0 0 4.2-4.2M12 14l-4.2-4.2M4.5 17.5v1.7c0 1 .8 1.8 1.8 1.8h11.4c1 0 1.8-.8 1.8-1.8v-1.7"
+                                    fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                        <span class="dl-file-text">
+                            <strong>下载 Android 版</strong>
+                            <small>APK · 去 Releases 取最新包</small>
+                        </span>
+
+                    </a>
+
+                    <div class="plat-alt">
+                        <a href="https://github.com/arcwolf1/cppsekai-droid/releases" target="_blank" rel="noopener">全部历史版本</a>
+                        <a href="https://github.com/arcwolf1/cppsekai-droid" target="_blank" rel="noopener">源码仓库</a>
+                    </div>
+                </article>
+            </section>
+
+            <section class="sec">
+                <h2 class="sec-title">下载不动？换条线路</h2>
+                <p class="sec-note">
+                    这些线路由社区和高校镜像站提供。
+                </p>
+                <div class="mirror-list" id="mirrorList">
+                    <p class="mirror-loading">正在读取线路…</p>
+                </div>
+                <div class="hash-line" id="hashLine" hidden>
+                    <span class="hash-label">SHA256</span>
+                    <code id="hashValue"></code>
+                    <button type="button" class="hash-copy" id="hashCopy">复制</button>
+                </div>
+            </section>
+
+            <section class="sec">
+                <h2 class="sec-title">跑起来需要什么</h2>
+                <div class="info-grid">
+                    <div class="card info-card">
+                        <h3>系统要求</h3>
+                        <ul>
+                            <li>Android 4.4 及以上，或 x86_64 Linux（glibc 2.31+）</li>
+                            <li>支持 OpenGL 3.3 的显卡与驱动</li>
+                            <li>至少 1.2GHz CPU</li>
+                            <li>至少 512MB RAM</li>
+                        </ul>
+                    </div>
+                    <div class="card info-card">
+                        <h3>关于谱面</h3>
+                        <ul>
+                            <li><b>仓库不自带谱面与音频</b>，装好后列表是空的属于正常</li>
+                            <li>用 <code>chartdl</code> 下载，或自己往 <code>charts/</code> 里放</li>
+                            <li>放完在选曲界面点「重扫」（桌面端按 <code>F5</code>）</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sec">
+                <h2 class="sec-title">对于没有独显的机器</h2>
+                <p class="sec-note">
+                    游戏本体要 OpenGL 3.3。要是驱动太老、只有 Mesa 的软件渲染，或者启动时闪一句
+                    <code>Failed to initialize OpenGL loader!</code> 就没了，才需要走下面这条路。
+                </p>
+
+                <div class="nogpu">
+                    <div class="nogpu-warn">
+                        <strong>极端情况才用</strong>
+                        <p>
+                            这会导致画面全部丢给 CPU 硬算。
+                            仅适用于没独显的旧一体机和云桌面<b>能正常启动的机器，请直接用上面的包。</b>
+                        </p>
+                    </div>
+                    <ul class="nogpu-list">
+                        <li><b>慢 2 到 3 倍。</b>核心数少的机器更差。</li>
+                        <li><b>进得去不等于打得动。</b>判定窗口只有几十毫秒，再叠上云桌面本身的网络和编解码延迟。</li>
+                        <li><b>Linux 怎么开。</b>启动时带上环境变量 <code>LIBGL_ALWAYS_SOFTWARE=1 ./cppsekai</code>；先装个 <code>mesa-utils</code>，用 <code>glxinfo | grep "OpenGL version"</code> 能确认当前是不是软渲染。</li>
+                        <li><b>Android 怎么开。</b>没有这个开关 —— 系统驱动给不出 GLES 3.0 的话，装上也进不去，换台设备吧。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="sec">
+                <h2 class="sec-title">三步开打</h2>
+                <ol class="steps">
+                    <li>
+                        <span class="step-n">1</span>
+                        <div>
+                            <strong>装上 / 解压</strong>
+                            <p>Android 直接安装 APK；Linux 解压后给 <code>cppsekai</code> 加个执行权限（<code>chmod +x</code>）。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="step-n">2</span>
+                        <div>
+                            <strong>用 chartdl 下谱面</strong>
+                            <p>打开附带的 <code>chartdl</code>，国服日服随便挑。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="step-n">3</span>
+                        <div>
+                            <strong>开打</strong>
+                            <p>选好歌和难度，和同学一起进入「SEKAI」。</p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="sec">
+                <h2 class="sec-title">常见问题</h2>
+                <div class="faq-list">
+                    <details>
+                        <summary>为什么打开之后一首歌都没有？</summary>
+                        <p>版权原因，仓库里不带谱面和音频。打开附带的 <code>chartdl</code> 把想打的曲子下下来，列表就有了。</p>
+                    </details>
+                    <details>
+                        <summary>手柄能打歌吗？</summary>
+                        <p>不能，手柄只管菜单：方向键或左摇杆选歌、换难度，<code>A</code> / <code>START</code> / <code>Y</code> 负责开始、开设置、重扫，<code>B</code> / <code>BACK</code> 退回。</p>
+                    </details>
+                    <details>
+                        <summary>键盘打不出左右 flick？</summary>
+                        <p>一个键没有方向，键盘只能发向上 flick；左右方向必须用鼠标或触摸甩出来。触屏上垂直滑动不好触发的话，可以在 <b>设置 → 判定</b> 里打开「Flick 视作 Tap」。</p>
+                    </details>
+                    <details>
+                        <summary>长条什么时候会断？</summary>
+                        <p>尾判是松手判定：结束前在容错窗口内松手，按距离给 Perfect / Great / Good；一直按到底同样是 Perfect。只有明显提前松手才算断连，窗口大小在 <b>设置 → 判定 → 长条容错</b> 里调。</p>
+                    </details>
+                    <details>
+                        <summary>点开没反应 / 提示缺某个库？</summary>
+                        <p>Linux 下先在终端里跑一遍 <code>./cppsekai</code>，缺什么库终端会直接报出来，<code>ldd ./cppsekai</code> 也能看到没解析到的依赖；日志写在当前工作目录的 <code>cppsekai.log</code>，出问题先看它最后几行。Android 上的崩溃日志在同目录的 <code>cppsekai.log</code>。</p>
+                    </details>
+                    <details>
+                        <summary>怎么和同学一起打？</summary>
+                        <p><b>设置 → 系统 → 多人游玩</b>。勾上之后重启，再多开几个窗口就会出现新座位。有几个人就开几个，同机自动连上，不用配网络。</p>
+                    </details>
+                    <details>
+                        <summary>支持哪些平台？</summary>
+                        <p>官方只做 <b>Android（4.4+）</b> 和 <b>x86_64 Linux</b> 两端：触控、媒体会话和共享内存都用的是这两个平台的原生接口。Windows / macOS 暂时没有，想看网页版可以去上游 <a href="https://github.com/watagashi-uni/sekai-mmw-preview-web" target="_blank" rel="noopener">sekai-mmw-preview-web</a>。</p>
+                    </details>
+                    <details>
+                        <summary>它会联网吗？会上传什么东西吗？</summary>
+                        <p>游戏本体<b>没有任何网络代码</b>。只有 <code>chartdl</code> 下载谱面时会联网，也不上传任何东西。</p>
+                    </details>
+                    <details>
+                        <summary>启动一闪就没了 / 报 OpenGL 错误？</summary>
+                        <p>先看游戏目录下 <code>cppsekai.log</code> 的最后几行。如果有 <code>Failed to initialize OpenGL loader!</code>，说明这台机器没有可用的 3D 驱动，去上面「没有独显的机器」那一节。能正常启动的话，那段不用管。</p>
+                    </details>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="foot">
+        <div class="shell foot-in">
+            <div>
+                <div class="foot-brand">
+                    <img src="assets/logo.png" alt="" width="26" height="26">
+                    <span>CppSekai-Droid/Linux</span>
+                </div>
+                <p class="foot-note">
+                    免费、开源，也不赚钱。代码是 <b>AGPL-3.0-only</b>；谱面核心和渲染布局来自上游
+                    <a href="https://github.com/watagashi-uni/sekai-mmw-preview-web" target="_blank"
+                        rel="noopener">sekai-mmw-preview-web</a>，再上游是 MikuMikuWorld。
+                </p>
+                <p class="foot-note dim">
+                    本项目与 SEGA、Colorful Palette 及《初音未来：缤纷舞台》官方没有任何关系；相关素材版权归官方所有，仅限本地学习与练习使用。如有侵权请联系移除。
+                </p>
+            </div>
+            <div class="foot-links">
+                <a href="index.html">首页</a>
+                <a href="https://github.com/arcwolf1/cppsekai-droid" target="_blank" rel="noopener">Android 源码</a>
+                <a href="https://github.com/arcwolf1/cppsekai-linux" target="_blank" rel="noopener">Linux 源码</a>
+                <a href="https://www.arcwolf.top/" target="_blank" rel="noopener">Arcwolf Blog</a>
+            </div>
+        </div>
+        <div class="foot-bottom">
+            <span>© 2026 Arcwolf</span>
+            <span>仅供学习交流使用</span>
+        </div>
+    </footer>
+
+    <script src="common.js"></script>
+    <script src="download.js"></script>
+</body>
+
+</html>

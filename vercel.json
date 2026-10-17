@@ -35,5 +35,12 @@
 			]
 		}
 	],
+	"redirects": [
+		{
+			"source": "/cppsekai",
+			"destination": "/cppsekai/",
+			"permanent": false
+		}
+	],
 	"cleanUrls": true
 }

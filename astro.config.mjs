@@ -20,6 +20,7 @@ import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
 
 import { siteConfig } from "./src/config.ts";
+import { staticDirIndex } from "./src/plugins/astro-static-dir-index.mjs";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
 import { pluginLanguageBadge } from "./src/plugins/expressive-code/language-badge.ts";
 import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs";
@@ -41,6 +42,8 @@ export default defineConfig({
 	output: "static",
 
 	integrations: [
+		// public/ 下的独立静态站点（如 /cppsekai）需要目录索引支持
+		staticDirIndex({ dirs: ["cppsekai"] }),
 		oddmisc({
 			umami: {
 				shareUrl: "https://umami.arcwolf.top/share/6ZLUz3bUyr2crSYG",
@@ -63,6 +66,17 @@ export default defineConfig({
 			globalInstance: true,
 			// 滚动相关配置优化
 			resolveUrl: (url) => url,
+			// /cppsekai 是 public/ 下的独立静态站点，交给浏览器整页跳转，
+			// 避免 swup 只替换 main 容器导致样式与脚本失效
+			ignoreVisit: (url) => {
+				try {
+					return new URL(url, siteConfig.siteURL).pathname.startsWith(
+						"/cppsekai",
+					);
+				} catch {
+					return false;
+				}
+			},
 			animateHistoryBrowsing: false,
 			skipPopStateHandling: (event) => {
 				// 跳过锚点链接的处理，让浏览器原生处理

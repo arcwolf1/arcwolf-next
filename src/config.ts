@@ -251,10 +251,9 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		// 支持自定义导航栏链接，支持多级菜单
 		{
-			name: "Arcwolf Home",
-			url: "https://home.arcwolf.top",
-			icon: "material-symbols:home",
-			external: true,
+			name: "「SEKAI」",
+			url: "/cppsekai/",
+			icon: "material-symbols:music-note",
 		},
 		{
 			name: "Friends",
@@ -315,12 +314,6 @@ export const navBarConfig: NavBarConfig = {
 					name: "ZM破解",
 					url: "/1.cpp",
 					icon: "material-symbols:image-rounded",
-				},
-				{
-					name: "希沃密码",
-					url: "https://pwd.arcwolf.top",
-					external: true,
-					icon: "material-symbols:lock",
 				},
 			],
 		},
