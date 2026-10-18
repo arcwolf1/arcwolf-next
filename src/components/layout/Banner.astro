@@ -68,6 +68,10 @@ const hasBannerCredit = siteConfig.banner.credit.enable;
 const hasBannerLink = !!siteConfig.banner.credit.url;
 ---
 
+<!-- 随机图 API（Static_RandomPicAPI）：加载后会把 random:h / random:v 占位符替换成真实图片地址，
+     并接管 #bg-box、[data-random-bg]、img[alt="random:h"] 等元素。 -->
+<script is:inline src="https://random.arcwolf.top/random.js"></script>
+
 <div
 	id="banner-wrapper"
 	class={`absolute z-10 w-full transition duration-700 overflow-hidden ${mobileNonHomeBannerClass}`}
@@ -156,10 +160,25 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
 				}}
 			>
 				(function () {
+					// random:h / random:v 是占位符，由 random.js 在运行时给出真实图片地址；
+					// 脚本没加载成功时退回旧的动态接口，避免横幅空白
+					const RANDOM_FALLBACK = 'https://random.arcwolf.top/pic?img=ua';
+					const resolveRandomSrc = (src) => {
+						if (src === 'random:h') {
+							return typeof window.getRandomPicH === 'function'
+								? window.getRandomPicH() : RANDOM_FALLBACK;
+						}
+						if (src === 'random:v') {
+							return typeof window.getRandomPicV === 'function'
+								? window.getRandomPicV() : RANDOM_FALLBACK;
+						}
+						return src;
+					};
+
 					const getRandomImage = (images, storageKey) => {
 						if (Array.isArray(images)) {
 							if (images.length === 0) {return null;}
-							if (images.length === 1) {return images[0];}
+							if (images.length === 1) {return resolveRandomSrc(images[0]);}
 
 							const lastIndex = sessionStorage.getItem(storageKey);
 							let newIndex;
@@ -169,9 +188,9 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
 							} while (newIndex === parseInt(lastIndex || "-1"));
 
 							sessionStorage.setItem(storageKey, newIndex.toString());
-							return images[newIndex];
+							return resolveRandomSrc(images[newIndex]);
 						}
-						return images || null;
+						return resolveRandomSrc(images) || null;
 					};
 
 					const container = document.getElementById("banner-single-container");

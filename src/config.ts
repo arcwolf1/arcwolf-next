@@ -125,9 +125,10 @@ export const siteConfig: SiteConfig = {
 	banner: {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
-			desktop: ["https://random.arcwolf.top/pic?img=ua"], // 桌面横幅图
-			mobile: ["https://random.arcwolf.top/pic?img=ua"], // 移动横幅图片
-		}, // 使用本地横幅图片
+			// random:h / random:v 是占位符，运行时由 random.js 换成 random.arcwolf.top 的真实随机图
+			desktop: ["random:h"], // 桌面横幅图（横向随机图）
+			mobile: ["random:h"], // 移动横幅图片（横向随机图，与旧动态接口一致）
+		}, // 使用远端随机图（Static_RandomPicAPI，域名 random.arcwolf.top）
 
 		position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
 
@@ -232,9 +233,10 @@ export const siteConfig: SiteConfig = {
 };
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	src: {
+		// 壁纸是构建期渲染的，拿不到运行时的随机图，这里继续用动态接口
 		desktop: ["https://random.arcwolf.top/pic?img=ua"], // 桌面横幅图片
 		mobile: ["https://random.arcwolf.top/pic?img=ua"], // 移动横幅图片
-	}, // 使用本地横幅图片
+	}, // 使用远端随机图
 	position: "center", // 壁纸位置，等同于 object-position
 	carousel: {
 		enable: true, // 启用轮播
