@@ -126,17 +126,34 @@ const renderGroups = [
 					// random:h / random:v 占位符由 random.js 在运行时给出真实地址；
 					// 脚本没加载成功时退回静态目录第一张（旧的动态接口 /pic?img=ua 已 404）
 					const RANDOM_FALLBACK = 'https://random.arcwolf.top/ri/h/1.webp';
+					let lastType = 'h';
 					const resolveRandomSrc = (src) => {
 						if (src === 'random:h') {
+							lastType = 'h';
 							return typeof window.getRandomPicH === 'function'
 								? window.getRandomPicH() : RANDOM_FALLBACK;
 						}
 						if (src === 'random:v') {
+							lastType = 'v';
 							return typeof window.getRandomPicV === 'function'
 								? window.getRandomPicV() : RANDOM_FALLBACK;
 						}
 						return src;
 					};
+
+					// random.js 迟到时先显示兜底图，window load 后若函数可用再换成随机图
+					const armRandomPatch = (img, resolved, type) => {
+						if (!img || resolved !== RANDOM_FALLBACK) {return;}
+						window.addEventListener('load', function once() {
+							window.removeEventListener('load', once);
+							const fn = type === 'v' ? window.getRandomPicV : window.getRandomPicH;
+							if (typeof fn !== 'function') {return;}
+							const url = fn();
+							if (url) {img.src = url;}
+						});
+					};
+					const typeOf = (images) =>
+						(images || []).indexOf('random:v') >= 0 ? 'v' : 'h';
 
 					const getRandomImage = (images, storageKey) => {
 						if (images.length === 0) {return null;}
@@ -174,6 +191,11 @@ const renderGroups = [
 							/>
 						`;
 						container.appendChild(desktopDiv);
+						armRandomPatch(
+							desktopDiv.querySelector('img'),
+							desktopSrc,
+							typeOf(desktopImages),
+						);
 					}
 					
 					if (mobileSrc) {
@@ -192,6 +214,11 @@ const renderGroups = [
 							/>
 						`;
 						container.appendChild(mobileDiv);
+						armRandomPatch(
+							mobileDiv.querySelector('img'),
+							mobileSrc,
+							typeOf(mobileImages),
+						);
 					}
 				})();
 			</script>

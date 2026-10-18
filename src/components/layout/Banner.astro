@@ -175,6 +175,21 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
 						return src;
 					};
 
+					// random.js 因为网络慢/被拦截而没赶上时，先显示兜底图，
+					// 等 window load 后如果函数可用，再把 src 换成随机图
+					const armRandomPatch = (img, resolved, type) => {
+						if (resolved !== RANDOM_FALLBACK) {return;}
+						window.addEventListener('load', function once() {
+							window.removeEventListener('load', once);
+							const fn = type === 'v' ? window.getRandomPicV : window.getRandomPicH;
+							if (typeof fn !== 'function') {return;}
+							const url = fn();
+							if (url) {img.src = url;}
+						});
+					};
+					const typeOf = (images) =>
+						(images || []).indexOf('random:v') >= 0 ? 'v' : 'h';
+
 					const getRandomImage = (images, storageKey) => {
 						if (Array.isArray(images)) {
 							if (images.length === 0) {return null;}
@@ -213,6 +228,7 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
 						mobileImg.fetchPriority = "high";
 						mobileImg.dataset.position = position;
 						container.appendChild(mobileImg);
+						armRandomPatch(mobileImg, mobileSrc, typeOf(mobileImages));
 					}
 
 					if (desktopSrc) {
@@ -226,6 +242,7 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
 						desktopImg.fetchPriority = "high";
 						desktopImg.dataset.position = position;
 						container.appendChild(desktopImg);
+						armRandomPatch(desktopImg, desktopSrc, typeOf(desktopImages));
 					}
 				})();
 			</script>
