@@ -161,6 +161,10 @@ if (siteConfig.font) {
 >
 	<head>
 		<meta charset="UTF-8" />
+		<!-- 随机图 API（Static_RandomPicAPI）
+		     必须放 head：全屏壁纸组件的脚本比 Banner 更早执行，放后面会拿不到 getRandomPicH。
+		     ?v= 是缓存击穿参数，改图/改脚本后 bump 一次。 -->
+		<script is:inline src="https://random.arcwolf.top/random.js?v=20261019"></script>
 		<script
 			defer
 			src="https://umami.arcwolf.top/script.js"

@@ -68,10 +68,8 @@ const hasBannerCredit = siteConfig.banner.credit.enable;
 const hasBannerLink = !!siteConfig.banner.credit.url;
 ---
 
-<!-- 随机图 API（Static_RandomPicAPI）：加载后会把 random:h / random:v 占位符替换成真实图片地址，
-     并接管 #bg-box、[data-random-bg]、img[alt="random:h"] 等元素。 -->
-<!-- ?v= 是缓存击穿用的：改版本号就能让浏览器丢掉旧副本（旧版 random.js 有语法错误，很多人缓存着） -->
-<script is:inline src="https://random.arcwolf.top/random.js?v=20261019"></script>
+<!-- 随机图脚本已移到 Layout.astro 的 <head> 里：
+     全屏壁纸组件的脚本比 Banner 更早执行，放在这里会拿不到 window.getRandomPicH。 -->
 
 <div
 	id="banner-wrapper"
