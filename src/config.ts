@@ -233,10 +233,10 @@ export const siteConfig: SiteConfig = {
 };
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	src: {
-		// 壁纸是构建期渲染的，拿不到运行时的随机图，这里继续用动态接口
-		desktop: ["https://random.arcwolf.top/pic?img=ua"], // 桌面横幅图片
-		mobile: ["https://random.arcwolf.top/pic?img=ua"], // 移动横幅图片
-	}, // 使用远端随机图
+		// random:h / random:v 占位符，由壁纸组件的运行时脚本解析成 random.arcwolf.top 的真实随机图
+		desktop: ["random:h"], // 桌面壁纸（横向随机图）
+		mobile: ["random:v"], // 移动壁纸（竖向随机图）
+	}, // 使用远端随机图（Static_RandomPicAPI）
 	position: "center", // 壁纸位置，等同于 object-position
 	carousel: {
 		enable: true, // 启用轮播

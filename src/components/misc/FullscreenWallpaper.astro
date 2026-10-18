@@ -123,9 +123,24 @@ const renderGroups = [
 		<div id="wallpaper-single-container" class="w-full h-full relative">
 			<script is:inline define:vars={{ desktopImages: imageSources.desktop, mobileImages: imageSources.mobile, positionClass, blurAmount }}>
 				(function() {
+					// random:h / random:v 占位符由 random.js 在运行时给出真实地址；
+					// 脚本没加载成功时退回静态目录第一张（旧的动态接口 /pic?img=ua 已 404）
+					const RANDOM_FALLBACK = 'https://random.arcwolf.top/ri/h/1.webp';
+					const resolveRandomSrc = (src) => {
+						if (src === 'random:h') {
+							return typeof window.getRandomPicH === 'function'
+								? window.getRandomPicH() : RANDOM_FALLBACK;
+						}
+						if (src === 'random:v') {
+							return typeof window.getRandomPicV === 'function'
+								? window.getRandomPicV() : RANDOM_FALLBACK;
+						}
+						return src;
+					};
+
 					const getRandomImage = (images, storageKey) => {
 						if (images.length === 0) {return null;}
-						if (images.length === 1) {return images[0];}
+						if (images.length === 1) {return resolveRandomSrc(images[0]);}
 						
 						const lastIndex = sessionStorage.getItem(storageKey);
 						let newIndex;
@@ -135,7 +150,7 @@ const renderGroups = [
 						} while (newIndex === parseInt(lastIndex || '-1'));
 						
 						sessionStorage.setItem(storageKey, newIndex.toString());
-						return images[newIndex];
+						return resolveRandomSrc(images[newIndex]);
 					};
 					
 					const desktopSrc = getRandomImage(desktopImages, 'wallpaper_desktop_index');

@@ -162,7 +162,8 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
 				(function () {
 					// random:h / random:v 是占位符，由 random.js 在运行时给出真实图片地址；
 					// 脚本没加载成功时退回旧的动态接口，避免横幅空白
-					const RANDOM_FALLBACK = 'https://random.arcwolf.top/pic?img=ua';
+					// 注意：旧的动态接口 /pic?img=ua 已经 404，这里退回静态目录里的第一张
+					const RANDOM_FALLBACK = 'https://random.arcwolf.top/ri/h/1.webp';
 					const resolveRandomSrc = (src) => {
 						if (src === 'random:h') {
 							return typeof window.getRandomPicH === 'function'
